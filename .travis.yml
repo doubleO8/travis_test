@@ -9,8 +9,8 @@ install:
 
 script: 
 - python bli.py
-- python -m pycodestyle . > ./Rel/pycodestyle.txt
-- python -m pyflakes . > ./Rel/pyflakes.txt
+- python -m pycodestyle
+- python -m pyflakes
 
 after_success:
 - touch ./Rel/travis_after_success
