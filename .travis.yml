@@ -12,9 +12,9 @@ script:
 
 
 after_success:
-- touch ./Rel/travis_after_success
+- python -m flake8 --output-file ./Rel/flake8_report.txt
 
-before_deploy:
+after_failure:
 - python -m flake8 --output-file ./Rel/flake8_report.txt
 
 deploy:
