@@ -9,8 +9,7 @@ install:
 
 script: 
 - python bli.py
-- python -m pycodestyle
-- python -m pyflakes
+- python -m flake8 --output-file ./Rel/flake8_report.txt
 
 after_success:
 - touch ./Rel/travis_after_success
