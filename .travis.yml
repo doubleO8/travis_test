@@ -4,13 +4,15 @@ python:
 - "2.7"
 
 install:
+- mkdir -p ./Rel
 - pip install -r requirements-test.txt
 
 script: 
 - python bli.py
+- pycodestyle . > ./Rel/pycodestyle.txt
+- pyflakes . > ./Rel/pyflakes.txt
 
 after_success:
-- mkdir -p ./Rel
 - touch ./Rel/travis_after_success
 
 deploy:
