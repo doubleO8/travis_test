@@ -9,6 +9,8 @@ install:
 
 script: 
 - python bli.py
+
+after_script:
 - python -m flake8 --output-file ./Rel/flake8_report.txt
 
 after_success:
