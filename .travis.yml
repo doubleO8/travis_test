@@ -6,17 +6,16 @@ python:
 install:
 - mkdir -p ./Rel
 - pip install -r requirements-test.txt
-- touch ./Rel/flake8_report.txt
 
 script: 
 - python bli.py
 
-after_script:
-- python -m flake8 --output-file ./Rel/flake8_report.txt
 
 after_success:
 - touch ./Rel/travis_after_success
-- touch ./Rel/flake8_report.txt
+
+before_deploy:
+- python -m flake8 --output-file ./Rel/flake8_report.txt
 
 deploy:
   provider: pages
