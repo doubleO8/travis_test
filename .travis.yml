@@ -1,0 +1,23 @@
+language: python
+
+python:
+- "2.7"
+
+install:
+- pip install -r requirements-test.txt
+
+script: 
+- python bli.py
+
+after_success:
+- touch ./Rel/travis_after_success
+
+deploy:
+  provider: pages
+  local_dir: Rel
+  github_token: $GITHUB_TOKEN
+  skip_cleanup: true
+  target_branch: gh-pages
+  on:
+    branch: master
+
