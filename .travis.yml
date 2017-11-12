@@ -10,6 +10,7 @@ script:
 - python bli.py
 
 after_success:
+- mkdir -p ./Rel
 - touch ./Rel/travis_after_success
 
 deploy:
