@@ -9,10 +9,12 @@ install:
 
 script: 
 - python bli.py
+- sh ./build.sh
 
 after_success:
 - python -m flake8 --output-file ./Rel/flake8_report.txt
 - touch ./Rel/index.html
+- mv travis-test_1.2.3-1_all.opk ./Rel
 
 after_failure:
 - python -m flake8 --output-file ./Rel/flake8_report.txt

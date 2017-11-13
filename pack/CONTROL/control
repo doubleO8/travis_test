@@ -1,0 +1,10 @@
+Package: travis-test
+Version: 1:1.2.3-1
+Description: desc
+Architecture: all
+Section: extra
+Priority: optional
+Maintainer: bla
+Homepage: https://example.com/homepage
+Depends: mc
+Source: https://example.com/source
