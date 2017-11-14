@@ -20,13 +20,13 @@ after_success:
 - python -m flake8 --output-file ./Rel/flake8_report.txt
 - touch ./Rel/index.html
 - mv travis-test_1.2.3-1_all.opk ./Rel
+- jshint blub.js | tee ./Rel/jshint_report
 
 after_failure:
 - python -m flake8 --output-file ./Rel/flake8_report.txt
 
 before_deploy:
 - find opkg-utils
-- jshint -h
 
 deploy:
   provider: pages
