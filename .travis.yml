@@ -31,7 +31,7 @@ before_deploy:
 
 deploy:
   provider: pages
-  local_dir: Rel
+  local_dir: ./pages_out
   github_token: $GITHUB_TOKEN
   skip_cleanup: true
   target_branch: gh-pages
