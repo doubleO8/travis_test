@@ -1,4 +1,4 @@
-Package: {{ package|default('travis_test') }}
+Package: {{ package|default('travis-test') }}
 Version: {{ epoch|default('0') }}:{{ upstream_version|default('42') }}-{{ debian_revision|default('1') }}
 Description: {{ description|default('no description') }}
 Architecture: {{ architecture|default('all') }}
