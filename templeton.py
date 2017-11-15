@@ -14,6 +14,9 @@ if __name__ == '__main__':
     }
 
     if not os.path.isdir("pack"):
+        os.makedirs("pack")
+
+    if not os.path.isdir("pack/CONTROL"):
         os.makedirs("pack/CONTROL")
 
     template_content = template.render(**version_meta)
