@@ -12,7 +12,10 @@ if __name__ == '__main__':
         "upstream_version": beppo.__version__,
         "epoch": 1
     }
-    os.makedirs("pack/CONTROL")
+
+    if not os.path.isdir("pack"):
+        os.makedirs("pack/CONTROL")
+
     template_content = template.render(**version_meta)
     with open("pack/CONTROL/control", "wb") as target:
         target.write(template_content)
