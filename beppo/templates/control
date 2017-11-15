@@ -1,0 +1,10 @@
+Package: {{ package|default('travis_test') }}
+Version: {{ epoch|default('0') }}:{{ upstream_version|default('42') }}-{{ debian_revision|default('1') }}
+Description: {{ description|default('no description') }}
+Architecture: {{ architecture|default('all') }}
+Section: {{ section|default('extra') }}
+Priority: {{ priority|default('optional') }}
+Maintainer: {{ maintainer|default('nobody') }}
+Homepage: {{ homepage|default('https://example.com/homepage') }}
+Depends: {{ depends|default('mc') }}
+Source: {{ source|default('https://example.com/source') }}
