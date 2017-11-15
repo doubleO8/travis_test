@@ -4,18 +4,20 @@ import os
 
 from jinja2 import Environment, PackageLoader
 
-from beppo.defaults import PACKAGE_META
+from beppo.defaults import PACKAGE_META, PACKAGE_OUTPUT_PATH
 
 if __name__ == '__main__':
     env = Environment(loader=PackageLoader('beppo', 'templates'))
-    template = env.get_template('control')
+    control_template = env.get_template('control')
+    control_content = control_template.render(**PACKAGE_META)
+    control_path = os.path.join(PACKAGE_OUTPUT_PATH, "CONTROL")
+    control_file = os.path.join(control_path, "control")
 
-    if not os.path.isdir("pack"):
-        os.makedirs("pack")
+    if not os.path.isdir(PACKAGE_OUTPUT_PATH):
+        os.makedirs(PACKAGE_OUTPUT_PATH)
 
-    if not os.path.isdir("pack/CONTROL"):
-        os.makedirs("pack/CONTROL")
+    if not os.path.isdir(control_path):
+        os.makedirs(control_path)
 
-    template_content = template.render(**PACKAGE_META)
-    with open("pack/CONTROL/control", "wb") as target:
-        target.write(template_content)
+    with open(control_file, "wb") as target:
+        target.write(control_content)

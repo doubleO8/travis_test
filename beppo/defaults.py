@@ -7,3 +7,7 @@ PACKAGE_META = {
     "upstream_version": __version__,
     "epoch": 1,
 }
+
+OUTPUT_PATH = 'pages_out'
+
+PACKAGE_OUTPUT_PATH = 'pack'
