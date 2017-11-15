@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-import beppo
+
 from jinja2 import Environment, PackageLoader
+
+from beppo.defaults import PACKAGE_META
 
 if __name__ == '__main__':
     env = Environment(loader=PackageLoader('beppo', 'templates'))
     template = env.get_template('control')
-
-    version_meta = {
-        "upstream_version": beppo.__version__,
-        "epoch": 1
-    }
 
     if not os.path.isdir("pack"):
         os.makedirs("pack")
@@ -19,6 +16,6 @@ if __name__ == '__main__':
     if not os.path.isdir("pack/CONTROL"):
         os.makedirs("pack/CONTROL")
 
-    template_content = template.render(**version_meta)
+    template_content = template.render(**PACKAGE_META)
     with open("pack/CONTROL/control", "wb") as target:
         target.write(template_content)

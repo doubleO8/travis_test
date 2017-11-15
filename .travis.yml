@@ -9,7 +9,6 @@ before_install:
 - sudo npm install -g jshint
 
 install:
-- mkdir -p ./pages_out
 - pip install -r requirements-test.txt
 - pip install -r requirements.txt
 
@@ -20,16 +19,16 @@ script:
 
 after_success:
 - python -m flake8 --output-file ./pages_out/flake8_report.txt
-- jshint blub.js | tee ./pages_out/jshint_report
+- jshint blub.js | tee ./pages_out/jshint_report.txt
 - python harvest.py
 
 after_failure:
 - python -m flake8 --output-file ./pages_out/flake8_report.txt
-- jshint blub.js | tee ./pages_out/jshint_report
+- jshint blub.js | tee ./pages_out/jshint_report.txt
 - python harvest.py
 
 before_deploy:
-- find opkg-utils
+- find ./pages_out
 
 deploy:
   provider: pages

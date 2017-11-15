@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<h1>Items</h1>
+<h1>Items of {{ meta.package }} {{ meta.upstream_version }}</h1>
 <ul>
     {% for item in files %}
     <li><a href="{{ item.filename|e }}">{{ item.description|e }}</a></li>
